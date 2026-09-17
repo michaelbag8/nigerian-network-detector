@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nigerian Network Detector</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Nigerian Network Detector</h1>
+            <p class="subtitle">Identify mobile network providers instantly</p>
+        </header>
+
+        <main>
+            <div class="detector-card">
+                <div class="input-section">
+                    <label for="phone-input">Enter Phone Number: </label>
+                    <div class="input-group">
+                        <input 
+                            type="tel" 
+                            id="phone-input" 
+                            placeholder="e.g., 0803 123 4567 or +2348031234567"
+                            autocomplete="tel"
+                        >
+                        <button id="detect-btn" class="btn-primary">Detect Network</button>
+                    </div>
+                    <small class="hint">Supports: 0803 123 4567, +2348031234567, or 8031234567</small>
+                </div>
+
+                <div id="result-section" class="result-section hidden">
+                    <div id="result-card" class="result-card">
+                        <div class="network-icon" id="network-icon"></div>
+                        <div class="network-info">
+                            <h2 id="network-name"></h2>
+                            <p id="network-message"></p>
+                            <div class="number-details">
+                                <span class="label">Number: </span>
+                                <span id="cleaned-number"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="network-grid" class="network-grid">
+                    <h3>Supported Networks</h3>
+                    <div class="grid" id="network-list"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with Python FastAPI & JavaScript | Data from NCC</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
