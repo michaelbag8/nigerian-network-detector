@@ -3,58 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nigerian Network Detector</title>
+    <title>{{ app_name }}</title>
+    <meta name="description" content="Instantly identify the mobile network operator behind any Nigerian phone number.">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Nigerian Network Detector</h1>
-            <p class="subtitle">Identify mobile network providers instantly</p>
+    <div class="page">
+        <header class="page-header">
+            <div class="brand">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 4h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M9 3h6l-.7 2h-4.6L9 3Z" fill="currentColor"/>
+                        <circle cx="12" cy="17.4" r="1.1" fill="currentColor"/>
+                    </svg>
+                </span>
+                <div class="brand-text">
+                    <h1>{{ app_name }}</h1>
+                    <p class="subtitle">Type any Nigerian number, get its network instantly</p>
+                </div>
+            </div>
+            <span class="network-count-badge" id="network-count-badge">6 networks supported</span>
         </header>
 
-        <main>
-            <div class="detector-card">
-                <div class="input-section">
-                    <label for="phone-input">Enter Phone Number: </label>
-                    <div class="input-group">
-                        <input 
-                            type="tel" 
-                            id="phone-input" 
-                            placeholder="e.g., 0803 123 4567 or +2348031234567"
-                            autocomplete="tel"
-                        >
-                        <button id="detect-btn" class="btn-primary">Detect Network</button>
-                    </div>
-                    <small class="hint">Supports: 0803 123 4567, +2348031234567, or 8031234567</small>
+        <main class="detector-card">
+            <section class="input-section" aria-labelledby="phone-input-label">
+                <label id="phone-input-label" for="phone-input">Phone number</label>
+                <div class="input-group">
+                    <input
+                        type="tel"
+                        id="phone-input"
+                        placeholder="0803 123 4567"
+                        autocomplete="tel"
+                        inputmode="numeric"
+                    >
+                    <button id="detect-btn" class="btn-primary" type="button">
+                        <span class="btn-label">Detect</span>
+                    </button>
                 </div>
+                <small class="hint">Works with 0803 123 4567, +2348031234567, or 8031234567</small>
+            </section>
 
-                <div id="result-section" class="result-section hidden">
-                    <div id="result-card" class="result-card">
-                        <div class="network-icon" id="network-icon"></div>
-                        <div class="network-info">
-                            <h2 id="network-name"></h2>
-                            <p id="network-message"></p>
-                            <div class="number-details">
-                                <span class="label">Number: </span>
-                                <span id="cleaned-number"></span>
-                            </div>
+            <section id="result-section" class="result-section hidden" aria-live="polite">
+                <div id="result-card" class="result-card">
+                    <div class="network-icon" id="network-icon"></div>
+                    <div class="network-info">
+                        <h2 id="network-name"></h2>
+                        <p id="network-message"></p>
+                        <div class="number-details">
+                            <span class="label">Number</span>
+                            <span id="cleaned-number"></span>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <div id="network-grid" class="network-grid">
-                    <h3>Supported Networks</h3>
-                    <div class="grid" id="network-list"></div>
-                </div>
-            </div>
+            <section class="network-grid" aria-labelledby="network-grid-heading">
+                <h3 id="network-grid-heading">Supported networks</h3>
+                <div class="grid" id="network-list"></div>
+            </section>
         </main>
 
-        <footer>
-            <p>Built with Python FastAPI & JavaScript | Data from NCC</p>
+        <footer class="page-footer">
+            <p>Built with FastAPI &amp; vanilla JS &middot; prefix data via the NCC</p>
         </footer>
     </div>
 

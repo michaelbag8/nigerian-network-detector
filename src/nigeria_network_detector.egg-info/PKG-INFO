@@ -1,3 +1,26 @@
+Metadata-Version: 2.4
+Name: nigeria-network-detector
+Version: 1.0.0
+Summary: A FastAPI web app that detects Nigerian mobile network providers from a phone number
+Author-email: Your Name <your.email@example.com>
+License: MIT
+Project-URL: Repository, https://github.com/your-username/nigerian-network-detector
+Keywords: fastapi,nigeria,phone-number,mno,network-detector
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: FastAPI
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.110.0
+Requires-Dist: uvicorn[standard]>=0.24.0
+Requires-Dist: jinja2>=3.1.2
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.1.0; extra == "dev"
+Requires-Dist: httpx>=0.27.0; extra == "dev"
+Requires-Dist: ruff>=0.6.0; extra == "dev"
+
 # Nigerian Network Detector
 
 A small FastAPI web app that detects which mobile network operator
@@ -25,9 +48,9 @@ nigerian-network-detector/
 │   └── nigeria_network_detector/
 │       ├── __init__.py                  # Package exports
 │       ├── __main__.py                  # Console-script entry point (installed package)
-│       ├── app.py                    # FastAPI app factory — wires routes + static  files
+│       ├── app.py                       # FastAPI app factory — wires routes + static files
 │       ├── config.py                    # App metadata & resolved paths
-│       ├── detector.py             # Pure detection logic (no FastAPI, easy to unit test)
+│       ├── detector.py                  # Pure detection logic (no FastAPI, easy to unit test)
 │       ├── routes.py                    # HTTP routes: page + JSON API
 │       ├── schemas.py                   # Pydantic request/response models
 │       ├── static/

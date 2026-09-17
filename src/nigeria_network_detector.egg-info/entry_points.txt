@@ -1,0 +1,2 @@
+[console_scripts]
+nigeria-network-detector = nigeria_network_detector.__main__:main
