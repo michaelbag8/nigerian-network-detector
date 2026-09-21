@@ -54,7 +54,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-<<<<<<< HEAD
 :root {
     --green: #087f4e;
     --deep-green: #075b3a;
@@ -437,12 +436,8 @@ footer {
     .playground { margin-top: 18px; }
 }
 
-.container {
-    max-width: 800px;
-=======
 .page {
     max-width: 720px;
->>>>>>> a4caf25f5d7ce7f90ef5fbe4bbb9a8501ce2669b
     margin: 0 auto;
     padding: 48px 20px 64px;
     display: flex;
