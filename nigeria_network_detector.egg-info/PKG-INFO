@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: nigeria-network-detector
+Version: 1.0.0
+Summary: A web application to detect Nigerian mobile network providers
+Author-email: Your Name <your.email@example.com>
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.104.1
+Requires-Dist: uvicorn>=0.24.0
+Requires-Dist: jinja2>=3.1.2
+Requires-Dist: python-multipart>=0.0.6
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"

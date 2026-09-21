@@ -40,7 +40,7 @@ async def detect_network(request: PhoneNumberRequest):
         
         result = detect_nigerian_network(phone_number)
         
-        if result == "Invalid Nigerian number format":
+        if result.startswith("Invalid Nigerian number format"):
             return DetectionResponse(
                 success=False,
                 error=result
