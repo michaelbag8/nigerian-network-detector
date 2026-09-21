@@ -1,17 +1,60 @@
+/* ============================================================
+   Nigerian Network Detector — design tokens
+   Palette grounded in the Nigerian flag green + real carrier
+   brand hues, laid out around a dial-pad motif (3-column grid)
+   since the whole app is about phone numbers.
+   ============================================================ */
+:root {
+    --bg: #0b1710;
+    --bg-radial: #102217;
+    --surface: #132a1c;
+    --surface-raised: #16321f;
+    --border: #24402c;
+    --border-soft: #1c3423;
+
+    --text: #f1efe6;
+    --text-dim: #a9baa9;
+    --text-faint: #6d8171;
+
+    --accent: #00a651;       /* Naija flag green */
+    --accent-strong: #1ec96a;
+    --accent-ink: #04140a;
+    --gold: #ffc93c;         /* MTN-adjacent amber, used sparingly */
+
+    --danger: #ff6b6b;
+
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+
+    --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+    --shadow-card: 0 20px 50px -20px rgba(0, 0, 0, 0.6);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    padding: 20px;
-    color: #333;
+html, body {
+    min-height: 100%;
 }
 
+body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(circle at 18% -10%, var(--bg-radial) 0%, transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(0, 166, 81, 0.12) 0%, transparent 45%);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+<<<<<<< HEAD
 :root {
     --green: #087f4e;
     --deep-green: #075b3a;
@@ -396,120 +439,201 @@ footer {
 
 .container {
     max-width: 800px;
+=======
+.page {
+    max-width: 720px;
+>>>>>>> a4caf25f5d7ce7f90ef5fbe4bbb9a8501ce2669b
     margin: 0 auto;
+    padding: 48px 20px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 40px;
-    color: white;
+/* ---------------- Header ---------------- */
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
-header h1 {
-    font-size: 2.5rem;
+.brand {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(160deg, var(--accent) 0%, #067a3c 100%);
+    color: var(--accent-ink);
+    flex-shrink: 0;
+}
+
+.brand-mark svg {
+    width: 22px;
+    height: 22px;
+}
+
+.brand-text h1 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    letter-spacing: -0.01em;
 }
 
 .subtitle {
-    font-size: 1.1rem;
-    opacity: 0.9;
-    font-weight: 300;
+    color: var(--text-dim);
+    font-size: 0.92rem;
+    margin-top: 2px;
 }
 
+.network-count-badge {
+    align-self: flex-start;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent-strong);
+    background: rgba(0, 166, 81, 0.12);
+    border: 1px solid rgba(0, 166, 81, 0.35);
+    border-radius: 999px;
+    padding: 6px 14px;
+    white-space: nowrap;
+}
+
+/* ---------------- Card shell ---------------- */
 .detector-card {
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    position: relative;
+    overflow: hidden;
 }
 
-.input-section {
-    margin-bottom: 30px;
+/* A row of dial-pad style perforations along the top edge, echoing
+   the physical notch on a SIM card / phone speaker grille. */
+.detector-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 24px;
+    right: 24px;
+    height: 3px;
+    background-image: radial-gradient(circle, var(--border) 1.5px, transparent 1.6px);
+    background-size: 10px 3px;
+    background-repeat: repeat-x;
+    opacity: 0.9;
 }
 
+/* ---------------- Input ---------------- */
 .input-section label {
     display: block;
+    font-size: 0.82rem;
     font-weight: 600;
-    margin-bottom: 10px;
-    color: #555;
+    color: var(--text-dim);
+    margin-bottom: 8px;
 }
 
 .input-group {
     display: flex;
     gap: 10px;
-    margin-bottom: 5px;
 }
 
 #phone-input {
     flex: 1;
-    padding: 15px 20px;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+    min-width: 0;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+    padding: 14px 16px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#phone-input::placeholder {
+    color: var(--text-faint);
+    font-weight: 400;
 }
 
 #phone-input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0, 166, 81, 0.22);
 }
 
 .btn-primary {
-    padding: 15px 30px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
+    font-family: var(--font-display);
     font-weight: 600;
+    font-size: 0.98rem;
+    color: var(--accent-ink);
+    background: linear-gradient(160deg, var(--accent-strong) 0%, var(--accent) 100%);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0 24px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.12s ease, filter 0.12s ease;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    filter: brightness(1.08);
 }
 
 .btn-primary:active {
-    transform: translateY(0);
+    transform: scale(0.97);
 }
 
 .btn-primary:disabled {
     opacity: 0.6;
-    cursor: not-allowed;
+    cursor: default;
 }
 
 .hint {
-    color: #777;
-    font-size: 0.85rem;
+    display: block;
+    margin-top: 10px;
+    color: var(--text-faint);
+    font-size: 0.8rem;
 }
 
-.result-section {
-    margin: 30px 0;
-}
-
+/* ---------------- Result ---------------- */
 .result-section.hidden {
     display: none;
 }
 
 .result-card {
     display: flex;
+    gap: 16px;
     align-items: center;
-    gap: 20px;
-    padding: 25px;
-    border-radius: 15px;
-    background: #f8f9ff;
-    border: 2px solid #e0e7ff;
-    animation: slideIn 0.4s ease;
+    background: var(--surface-raised);
+    border: 1px solid var(--border-soft);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+    animation: reveal 0.28s ease-out;
 }
 
-@keyframes slideIn {
+.result-card.is-error {
+    border-left-color: var(--danger);
+}
+
+@keyframes reveal {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(-6px);
     }
     to {
         opacity: 1;
@@ -518,112 +642,130 @@ header h1 {
 }
 
 .network-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
     flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--accent-ink);
+    background: var(--accent);
 }
 
 .network-info h2 {
-    font-size: 1.8rem;
-    margin-bottom: 5px;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
 .network-info p {
-    color: #666;
-    margin-bottom: 10px;
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    margin-top: 2px;
 }
 
 .number-details {
-    font-size: 0.9rem;
-    color: #555;
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    font-family: var(--font-display);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.92rem;
 }
 
 .number-details .label {
-    font-weight: 600;
-    margin-right: 5px;
+    font-family: var(--font-body);
+    color: var(--text-faint);
+    font-size: 0.78rem;
+    text-transform: none;
 }
 
-.network-grid {
-    margin-top: 40px;
-}
-
+/* ---------------- Network grid (dial-pad, 3 columns) ---------------- */
 .network-grid h3 {
-    margin-bottom: 20px;
-    color: #555;
-    font-size: 1.2rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    margin-bottom: 12px;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
 
 .network-item {
-    padding: 15px;
-    border-radius: 10px;
-    color: white;
-    text-align: center;
-    font-weight: 500;
-    transition: transform 0.2s ease;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--item-color, var(--accent));
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    transition: border-color 0.15s ease;
 }
 
 .network-item:hover {
-    transform: translateY(-3px);
+    border-color: var(--item-color, var(--accent));
 }
 
 .network-item .name {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+
+.network-item .desc {
+    color: var(--text-faint);
+    font-size: 0.74rem;
+    margin-top: 2px;
+    line-height: 1.35;
 }
 
 .network-item .prefixes {
-    font-size: 0.8rem;
-    opacity: 0.9;
+    margin-top: 8px;
+    color: var(--text-dim);
+    font-size: 0.72rem;
+    font-family: var(--font-display);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
 }
 
-.error-message {
-    background: #fee;
-    color: #c33;
-    padding: 15px;
-    border-radius: 10px;
-    border-left: 4px solid #c33;
-    margin-top: 20px;
-}
-
-.loading {
-    opacity: 0.7;
-}
-
-footer {
+/* ---------------- Footer ---------------- */
+.page-footer {
     text-align: center;
-    margin-top: 30px;
-    color: white;
-    opacity: 0.8;
+    color: var(--text-faint);
+    font-size: 0.78rem;
 }
 
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 2rem;
+/* ---------------- Responsive ---------------- */
+@media (max-width: 520px) {
+    .page {
+        padding: 32px 16px 48px;
     }
-    
+
     .detector-card {
-        padding: 25px;
+        padding: 20px;
     }
-    
+
     .input-group {
         flex-direction: column;
     }
-    
-    .result-card {
-        flex-direction: column;
-        text-align: center;
+
+    .btn-primary {
+        padding: 14px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 360px) {
+    .grid {
+        grid-template-columns: 1fr;
     }
 }
