@@ -26,26 +26,48 @@
                     <p class="subtitle">Type any Nigerian number, get its network instantly</p>
                 </div>
             </div>
-            <span class="network-count-badge" id="network-count-badge">6 networks supported</span>
+            <span class="network-count-badge" id="network-count-badge">NIGERIA / CONNECTED</span>
         </header>
 
-        <main class="detector-card">
-            <section class="input-section" aria-labelledby="phone-input-label">
-                <label id="phone-input-label" for="phone-input">Phone number</label>
-                <div class="input-group">
-                    <input
-                        type="tel"
-                        id="phone-input"
-                        placeholder="0803 123 4567"
-                        autocomplete="tel"
-                        inputmode="numeric"
-                    >
-                    <button id="detect-btn" class="btn-primary" type="button">
-                        <span class="btn-label">Detect</span>
-                    </button>
-                </div>
-                <small class="hint">Works with 0803 123 4567, +2348031234567, or 8031234567</small>
+        <main>
+            <section class="hero-copy">
+                <p class="kicker">National network lookup</p>
+                <h2>Know your<br><em>network.</em></h2>
+                <p class="lead">Check a +234 telephone number and discover which network it belongs to.</p>
             </section>
+
+            <section class="detector-card" aria-label="Network detector">
+                <div class="input-section">
+                    <label id="phone-input-label" for="phone-input">Enter telephone number</label>
+                    <div class="input-group">
+                        <input
+                            type="tel"
+                            id="phone-input"
+                            placeholder="0803 123 4567"
+                            autocomplete="tel"
+                            inputmode="numeric"
+                        >
+                        <button id="detect-btn" class="btn-primary" type="button">
+                            <span class="btn-label">Check network</span>
+                        </button>
+                    </div>
+                    <small class="hint">Local, +234 and bare Nigerian formats are supported.</small>
+                </div>
+            </section>
+
+            <div class="transport-art" aria-hidden="true">
+                <span class="flag flag-one"></span>
+                <span class="flag flag-two"></span>
+                <span class="flag flag-three"></span>
+                <div class="bus">
+                    <span class="bus-window window-one"></span>
+                    <span class="bus-window window-two"></span>
+                    <span class="bus-window window-three"></span>
+                    <span class="bus-wheel wheel-one"></span>
+                    <span class="bus-wheel wheel-two"></span>
+                </div>
+                <span class="road"></span>
+            </div>
 
             <section id="result-section" class="result-section hidden" aria-live="polite">
                 <div id="result-card" class="result-card">
@@ -64,7 +86,7 @@
         </main>
 
         <footer class="page-footer">
-            <p>Built with FastAPI &amp; vanilla JS &middot; prefix data via the NCC</p>
+            <p>Made for keeping Nigeria connected</p>
         </footer>
     </div>
 
