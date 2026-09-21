@@ -6,11 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const networkMessage = document.getElementById('network-message');
     const cleanedNumber = document.getElementById('cleaned-number');
     const networkIcon = document.getElementById('network-icon');
-    const networkList = document.getElementById('network-list');
-
-    // Load network prefixes on page load
-    loadNetworkPrefixes();
-
     // Event listeners
     detectBtn.addEventListener('click', detectNetwork);
     phoneInput.addEventListener('keypress', function(e) {
@@ -38,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Show loading state
         detectBtn.disabled = true;
-        detectBtn.textContent = 'Detecting...';
+        detectBtn.textContent = 'Checking...';
         resultSection.classList.add('hidden');
 
         try {
@@ -61,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             showError('Network error: ' + error.message);
         } finally {
             detectBtn.disabled = false;
-            detectBtn.textContent = 'Detect Network';
+            detectBtn.textContent = 'Detect';
         }
     }
 
@@ -108,47 +103,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (existingError) {
             existingError.remove();
         }
-        
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
-        errorDiv.textContent = message;
-        
-        resultSection.parentNode.insertBefore(errorDiv, resultSection);
-        resultSection.classList.add('hidden');
-    }
 
-    async function loadNetworkPrefixes() {
-        try {
-            const response = await fetch('/api/networks');
-            const data = await response.json();
-            
-            if (data.success) {
-                const colors = {
-                    'MTN': '#ffcd00', 
-                    'Glo': '#228b22', 
-                    'Airtel': '#e91e63', 
-                    '9mobile': '#0066cc', 
-                    'Ntel': '#9c27b0', 
-                    'Smile': '#ff9800'
-                };
-
-                networkList.innerHTML = '';
-                
-                for (const [network, info] of Object.entries(data.networks)) {
-                    const networkItem = document.createElement('div');
-                    networkItem.className = 'network-item';
-                    networkItem.style.backgroundColor = colors[network] || '#666';
-                    
-                    networkItem.innerHTML = `
-                        <div class="name">${network}</div>
-                        <div class="prefixes">${info.prefixes.slice(0, 3).join(', ')}, ...</div>
-                    `;
-                    
-                    networkList.appendChild(networkItem);
-                }
-            }
-        } catch (error) {
-            console.error('Failed to load network prefixes: ', error);
-        }
+        networkName.textContent = 'Could not detect';
+        networkMessage.textContent = message;
+        cleanedNumber.textContent = '';
+        networkIcon.style.backgroundColor = '#d64545';
+        networkIcon.textContent = '!';
+        resultSection.classList.remove('hidden');
     }
 });

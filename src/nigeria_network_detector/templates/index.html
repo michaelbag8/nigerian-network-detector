@@ -5,35 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nigerian Network Detector</title>
     <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Nigerian Network Detector</h1>
-            <p class="subtitle">Identify mobile network providers instantly</p>
+            <div class="flag-mark" aria-hidden="true"><span></span></div>
+            <p class="eyebrow">Nigeria, connected</p>
+            <h1>Find your network.</h1>
+            <p class="subtitle">Enter a Nigerian phone number and we’ll identify its provider.</p>
         </header>
 
         <main>
-            <div class="detector-card">
+            <section class="detector-card" aria-label="Network detector">
                 <div class="input-section">
-                    <label for="phone-input">Enter Phone Number: </label>
+                    <label for="phone-input">Phone number</label>
                     <div class="input-group">
                         <input 
                             type="tel" 
                             id="phone-input" 
-                            placeholder="e.g., 0803 123 4567 or +2348031234567"
+                            placeholder="0803 123 4567"
                             autocomplete="tel"
                         >
-                        <button id="detect-btn" class="btn-primary">Detect Network</button>
+                        <button id="detect-btn" class="btn-primary">Detect</button>
                     </div>
-                    <small class="hint">Supports: 0803 123 4567, +2348031234567, or 8031234567</small>
+                    <small class="hint">Supports local and +234 formats</small>
                 </div>
 
-                <div id="result-section" class="result-section hidden">
-                    <div id="result-card" class="result-card">
+                <div id="result-section" class="result-section hidden" role="status" aria-live="polite">
+                    <div class="result-card">
                         <div class="network-icon" id="network-icon"></div>
                         <div class="network-info">
                             <h2 id="network-name"></h2>
@@ -45,16 +44,20 @@
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <div id="network-grid" class="network-grid">
-                    <h3>Supported Networks</h3>
-                    <div class="grid" id="network-list"></div>
+            <div class="playground" aria-hidden="true">
+                <div class="players">
+                    <div class="player player-one"><i></i><b></b><em></em></div>
+                    <div class="player player-two"><i></i><b></b><em></em></div>
+                    <div class="player player-three"><i></i><b></b><em></em></div>
+                    <span class="ball"></span>
                 </div>
             </div>
         </main>
 
         <footer>
-            <p>Built with Python FastAPI & JavaScript | Data from NCC</p>
+            <p>Made for keeping Nigeria connected</p>
         </footer>
     </div>
 
