@@ -71,15 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
         cleanedNumber.textContent = formattedNumber;
         
         // Set network-specific styling and message
-        const networkColors = {
-            'MTN': '#ffcd00', 
-            'Glo': '#228b22', 
-            'Airtel': '#e91e63', 
-            '9mobile': '#0066cc', 
-            'Ntel': '#9c27b0', 
-            'Smile': '#ff9800'
-        };
-
         const networkDescriptions = {
             'MTN': 'Largest network in Nigeria', 
             'Glo': 'Affordable data provider', 
@@ -89,11 +80,10 @@ document.addEventListener('DOMContentLoaded', function() {
             'Smile': '4G broadband services'
         };
 
-        const color = networkColors[data.network] || '#666';
         const description = networkDescriptions[data.network] || 'Network provider';
         
-        networkIcon.style.backgroundColor = color;
-        networkIcon.textContent = data.network.charAt(0);
+        networkIcon.dataset.network = data.network;
+        networkIcon.textContent = data.network === 'Glo' ? 'glo' : data.network;
         networkMessage.textContent = description;
     }
 
@@ -107,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         networkName.textContent = 'Could not detect';
         networkMessage.textContent = message;
         cleanedNumber.textContent = '';
-        networkIcon.style.backgroundColor = '#d64545';
+        networkIcon.dataset.network = 'error';
         networkIcon.textContent = '!';
         resultSection.classList.remove('hidden');
     }

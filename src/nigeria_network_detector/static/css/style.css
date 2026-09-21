@@ -197,15 +197,61 @@ h1 {
 
 .network-icon {
     align-items: center;
-    border-radius: 50%;
-    color: var(--white);
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    color: var(--green);
     display: flex;
-    flex: 0 0 48px;
+    flex: 0 0 76px;
     font-family: Arial, sans-serif;
-    font-size: 1.25rem;
+    font-size: .95rem;
     font-weight: 700;
     height: 48px;
     justify-content: center;
+    letter-spacing: -.04em;
+}
+
+.network-icon[data-network="MTN"] {
+    background: #ffcd00;
+    border-color: #ffcd00;
+    border-radius: 50%;
+    color: #111;
+    font-size: 1rem;
+}
+
+.network-icon[data-network="Glo"] {
+    color: #228b22;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.network-icon[data-network="Airtel"] {
+    color: #e91e63;
+    font-size: .83rem;
+    letter-spacing: -.08em;
+    text-transform: lowercase;
+}
+
+.network-icon[data-network="9mobile"] {
+    color: #0066cc;
+    font-size: .78rem;
+}
+
+.network-icon[data-network="Ntel"] {
+    color: #9c27b0;
+    font-size: 1.2rem;
+}
+
+.network-icon[data-network="Smile"] {
+    color: #ed7d14;
+    font-size: .88rem;
+}
+
+.network-icon[data-network="error"] {
+    background: #fff1f1;
+    border-color: #f0bcbc;
+    color: #b33e3e;
+    font-size: 1.25rem;
 }
 
 .network-info h2 {
