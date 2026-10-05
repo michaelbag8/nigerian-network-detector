@@ -14,6 +14,9 @@ dependencies = [
     "pydantic>=2.5",
 ]
 
+[tool.vercel]
+entrypoint = "src.nigeria_network_detector.app:app"
+
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",
