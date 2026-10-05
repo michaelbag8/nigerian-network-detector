@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nigerian Network Detector — Home</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="{{ request.url_for('static', path='css/style.css') }}">
+</head>
+<body>
+<div class="nnd-root">
+
+  <!-- Nav -->
+  <div class="nnd-nav">
+    <div class="nnd-nav-brand">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M4 18v-4M9 18v-8M14 18V6M19 18v-2"/></svg>
+      <span class="nnd-display nnd-nav-title">NetCheck NG</span>
+    </div>
+    <div class="nnd-nav-links">
+      <a href="#how">How it works</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="nnd-hero">
+    <div class="nnd-hero-ring nnd-hero-ring-1" aria-hidden="true"></div>
+    <div class="nnd-hero-ring nnd-hero-ring-2" aria-hidden="true"></div>
+
+    <span class="nnd-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 18v-4M9 18v-8M14 18V6M19 18v-2"/></svg>
+      Instant network lookup
+    </span>
+
+    <h1 class="nnd-display nnd-h1">
+      Which network is <span class="nnd-accent-text">that number</span> really on?
+    </h1>
+    <p class="nnd-sub">
+      Drop in any Nigerian mobile number and we'll scan its prefix against MTN, Glo, Airtel and 9mobile in under a second.
+    </p>
+
+    <!-- Input card -->
+    <div class="nnd-card nnd-input-card">
+      <label for="phone-input">Enter Nigerian phone number</label>
+      <div class="nnd-input-row">
+        <input id="phone-input" type="tel" placeholder="0905 000 1111">
+        <button id="check-btn" class="nnd-btn" type="button">Check number</button>
+      </div>
+      <div class="nnd-hint">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        Shows the number's original allocated network — ported numbers may differ.
+      </div>
+      <div id="error-msg" class="nnd-error" hidden></div>
+    </div>
+
+    <!-- Result preview -->
+    <div id="result-card" class="nnd-card nnd-result-card">
+      <div id="result-badge" class="nnd-result-badge">
+        <span class="nnd-display">Glo</span>
+      </div>
+      <div class="nnd-result-info">
+        <span id="result-name" class="nnd-display nnd-result-name">Glo Mobile</span>
+        <span id="result-meta" class="nnd-result-meta">+234 0905 000 1111 · prefix 0905</span>
+        <span class="nnd-result-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+          ORIGINAL NETWORK
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div id="how" class="nnd-section">
+    <h2 class="nnd-display nnd-h2">How the scan works</h2>
+    <div class="nnd-grid-3">
+      <div class="nnd-step">
+        <div class="nnd-step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+        </div>
+        <span class="nnd-display nnd-step-title">1. Type any format</span>
+        <p class="nnd-step-text">0905…, +234…, with spaces or dashes — we normalize it all to one standard form.</p>
+      </div>
+      <div class="nnd-step">
+        <div class="nnd-step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14a8 3 0 0 0 16 0V5"/></svg>
+        </div>
+        <span class="nnd-display nnd-step-title">2. Match the prefix</span>
+        <p class="nnd-step-text">The prefix is checked against verified NCC-allocated ranges — never guessed.</p>
+      </div>
+      <div class="nnd-step">
+        <div class="nnd-step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <span class="nnd-display nnd-step-title">3. See the result</span>
+        <p class="nnd-step-text">Labeled clearly as the original network — porting can mean the current one differs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="nnd-footer">
+    <span>© 2026 NetCheck NG</span>
+    <span>Built on verified NCC prefix data</span>
+  </div>
+
+</div>
+<script src="{{ request.url_for('static', path='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+:root {
+  --accent: #2DD4BF;
+  /* --bg: #0B1220; */
+  --surface: #121B2E;
+  --text: #F5F7FA;
+  --muted: #8B96AC;
+  --border: #1E2A42;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; }
+
+.nnd-root {
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+.nnd-display { font-family: 'Space Grotesk', sans-serif; }
+
+/* Nav */
+.nnd-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 64px;
+  border-bottom: 1px solid var(--border);
+}
+.nnd-nav-brand { display: flex; align-items: center; gap: 10px; }
+.nnd-nav-title { font-size: 19px; font-weight: 700; letter-spacing: -0.3px; }
+.nnd-nav-links { display: flex; gap: 32px; align-items: center; }
+.nnd-nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; }
+
+/* Hero */
+.nnd-hero {
+  position: relative;
+  padding: 96px 64px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+.nnd-hero-ring {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+.nnd-hero-ring-1 { top: 40px; width: 560px; height: 560px; }
+.nnd-hero-ring-2 { top: 120px; width: 400px; height: 400px; }
+
+.nnd-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+
+.nnd-h1 {
+  position: relative;
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin: 0 0 18px;
+  max-width: 780px;
+}
+.nnd-accent-text { color: var(--accent); }
+
+.nnd-sub {
+  position: relative;
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 540px;
+  margin: 0 0 44px;
+  line-height: 1.6;
+}
+
+.nnd-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+.nnd-input-card {
+  width: 100%;
+  max-width: 520px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.06);
+}
+.nnd-input-card label {
+  text-align: left;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+}
+.nnd-input-row { display: flex; gap: 10px; }
+.nnd-input-row input {
+  flex: 1;
+  background: #0E1829;
+  border: 1px solid #223150;
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: var(--text);
+  font-size: 16px;
+  outline: none;
+  font-family: inherit;
+}
+
+.nnd-btn {
+  background: var(--accent);
+  color: #06231D;
+  border: none;
+  border-radius: 12px;
+  padding: 0 22px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.nnd-btn:hover { background: color-mix(in srgb, var(--accent) 85%, white); }
+.nnd-btn:disabled { opacity: 0.6; cursor: default; }
+
+.nnd-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.nnd-error {
+  font-size: 12px;
+  color: #FCA5A5;
+  text-align: left;
+}
+.nnd-error[hidden] { display: none; }
+
+.nnd-result-card {
+  margin-top: 36px;
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+}
+.nnd-result-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #0C8A3E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nnd-result-badge span { color: #fff; font-weight: 700; font-size: 17px; }
+.nnd-result-info { display: flex; flex-direction: column; gap: 3px; }
+.nnd-result-name { font-size: 17px; font-weight: 700; }
+.nnd-result-meta { font-size: 13px; color: var(--muted); }
+.nnd-result-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #34D399;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* Dynamism only — the layout above is unchanged. JS toggles this class to
+   make the result "pop up when found" rather than appearing instantly. */
+@keyframes nnd-pop-in {
+  0% { opacity: 0; transform: translateY(8px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.nnd-pop { animation: nnd-pop-in 0.35s ease; }
+
+/* Sections */
+.nnd-section { padding: 72px 64px; border-top: 1px solid var(--border); }
+.nnd-h2 { font-size: 28px; font-weight: 700; text-align: center; margin: 0 0 8px; }
+.nnd-section-sub { text-align: center; color: var(--muted); font-size: 15px; margin: 0 0 40px; }
+
+.nnd-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+.nnd-provider-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+}
+.nnd-swatch { width: 40px; height: 40px; border-radius: 10px; }
+.nnd-provider-name { font-weight: 700; font-size: 15px; }
+.nnd-provider-prefixes { font-size: 12px; color: var(--muted); }
+
+.nnd-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+.nnd-step { display: flex; flex-direction: column; gap: 12px; }
+.nnd-step-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nnd-step-title { font-weight: 700; font-size: 16px; }
+.nnd-step-text { font-size: 14px; color: var(--muted); line-height: 1.6; margin: 0; }
+
+/* Footer */
+.nnd-footer {
+  padding: 32px 64px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .nnd-nav, .nnd-hero, .nnd-section, .nnd-footer { padding-left: 24px; padding-right: 24px; }
+  .nnd-h1 { font-size: 36px; }
+  .nnd-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .nnd-grid-3 { grid-template-columns: 1fr; }
+  .nnd-nav-links { display: none; }
+}
