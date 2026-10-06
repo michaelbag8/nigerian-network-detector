@@ -7,4 +7,4 @@ __all__ = [
     "normalize_phone_number",
 ]
 
-__version__ = "0
+__version__ = "0.1.0"
