@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [tool.vercel]
-entrypoint = "nigeria_network_detector.app:app"
+entrypoint = "app:app"
 
 [project.optional-dependencies]
 dev = [

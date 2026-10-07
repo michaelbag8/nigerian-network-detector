@@ -1,5 +1,12 @@
 from __future__ import annotations
 
+import importlib
+
+
+def test_root_vercel_entrypoint_imports():
+    module = importlib.import_module("app")
+    assert hasattr(module, "app")
+
 
 class TestHomepage:
     def test_serves_html(self, client):
